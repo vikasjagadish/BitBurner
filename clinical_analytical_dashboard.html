@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clinical Analytics Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.waves.min.js"></script>
+  <style>
+    :root {
+      --primary-blue: #1A6BAA;
+      --hover-blue: #0F4E7A;
+      --background-gradient: linear-gradient(to bottom right, #1A6BAA, #0F4E7A);
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+    }
+
+    #animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .dashboard-card {
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-header {
+      border-radius: 15px 15px 0 0;
+    }
+
+    .metric-title {
+      font-weight: bold;
+      color: #1A6BAA;
+    }
+
+    .back-button {
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated Background -->
+  <div id="animated-bg"></div>
+
+  <!-- Dashboard Container -->
+  <div class="container py-5">
+    <h1 class="text-center text-white mb-5">Clinical Analytics Dashboard</h1>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card dashboard-card">
+          <div class="card-header bg-success text-white">
+            <i class="fas fa-notes-medical me-2"></i>ADR Reports
+          </div>
+          <div class="card-body text-center">
+            <p class="metric-title">245 Cases</p>
+            <p>Reported adverse drug reactions in the past month.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card dashboard-card">
+          <div class="card-header bg-danger text-white">
+            <i class="fas fa-user-shield me-2"></i>High-Risk Patients
+          </div>
+          <div class="card-body text-center">
+            <p class="metric-title">38 Patients</p>
+            <p>Flagged for potential drug interaction risks.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card dashboard-card">
+          <div class="card-header bg-warning text-dark">
+            <i class="fas fa-capsules me-2"></i>Drug Alerts
+          </div>
+          <div class="card-body text-center">
+            <p class="metric-title">12 Alerts</p>
+            <p>Recently updated drug safety notices.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="text-center back-button">
+      <a href="adr.html" class="btn btn-outline-light">
+        <i class="fas fa-arrow-left me-2"></i>Back to ADR Info
+      </a>
+    </div>
+  </div>
+
+  <!-- Vanta Background Script -->
+  <script>
+    VANTA.WAVES({
+      el: "#animated-bg",
+      color: "#1A6BAA",
+      shininess: 50,
+      waveHeight: 20,
+      waveSpeed: 1,
+      zoom: 1
+    });
+  </script>
+</body>
+</html>

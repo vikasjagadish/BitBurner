@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Medical Login Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(to right, #e0f2f1, #b2ebf2);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      display: flex;
+      width: 90%;
+      max-width: 1000px;
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .login-section {
+      flex: 1;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-section.doctor {
+      background-color: #e8f5e9;
+    }
+
+    .login-section.patient {
+      background-color: #e3f2fd;
+    }
+
+    .login-section h2 {
+      margin-bottom: 1rem;
+      font-size: 24px;
+      color: #00796b;
+    }
+
+    .login-section.patient h2 {
+      color: #1565c0;
+    }
+
+    .icon {
+      font-size: 36px;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      width: 100%;
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      background-color: #00796b;
+      color: white;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .patient button {
+      background-color: #1565c0;
+    }
+
+    button:hover {
+      background-color: #004d40;
+    }
+
+    .patient button:hover {
+      background-color: #0d47a1;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Doctor Login -->
+    <div class="login-section doctor">
+      <div class="icon">🩺</div>
+      <h2>Doctor Login</h2>
+      <form action="doctorlogin_2.html" method="get">
+        <input type="text" name="DoctorName" placeholder="Doctor's Name" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <!-- Patient Login -->
+    <div class="login-section patient">
+      <div class="icon">👨‍⚕</div>
+      <h2>Patient Login</h2>
+      <form action="patientsinfo.html" method="get">
+        <input type="text" name="Patientname" placeholder="Patient's Name" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
