@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Patient Care Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.waves.min.js"></script>
+  <style>
+    :root {
+      --primary: #007bff;
+      --primary-dark: #0056b3;
+      --text-light: #f8f9fa;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text-light);
+      overflow-x: hidden;
+    }
+
+    #animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .jumbotron {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem 3rem;
+      border-radius: 15px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      color: white;
+      margin-bottom: 2.5rem;
+    }
+
+    .jumbotron h1 {
+      font-weight: 700;
+      font-size: 2.5rem;
+    }
+
+    .jumbotron p.lead {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .btn-glass {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      font-size: 1.05rem;
+      transition: all 0.25s ease-in-out;
+      width: 100%;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-glass:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .button-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .jumbotron {
+        padding: 1.5rem;
+      }
+
+      .jumbotron h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="animated-bg"></div>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Patient Care Dashboard</h1>
+      <p class="lead">Welcome to your personalized health assistant!</p>
+      <hr class="my-4 text-light">
+    </div>
+
+    <div class="button-group">
+      <a href="remainder.html" class="btn btn-glass">💊 Medication Reminders</a>
+      <a href="checklist.html" class="btn btn-glass">🗒 Medication Checklist</a>
+      <a href="cases.html" class="btn btn-glass">📊 Clinical Analytics</a>
+      <a href="adr.html" class="btn btn-glass">⚠ ADR Detection</a>
+      <a href="graph and usage.html" class="btn btn-glass">📈 Symptom Tracker</a>
+      <a href="text to speech.html" class="btn btn-glass">🗣️🔊 text to voice speech</a>
+    </div>
+  </div>
+
+  <script>
+    VANTA.WAVES({
+      el: "#animated-bg",
+      color: 0x007bff,
+      shininess: 60,
+      waveHeight: 25,
+      waveSpeed: 1.5,
+      zoom: 1.1
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

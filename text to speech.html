@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Text to Speech</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.waves.min.js"></script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .content {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      resize: none;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.75rem;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <div id="animated-bg"></div>
+
+  <div class="container">
+    <div class="content">
+      <h2>Text to Speech Converter</h2>
+      <textarea id="textInput" rows="5" placeholder="Enter your text here..." required></textarea>
+      <button onclick="convertTextToSpeech()">Convert to Speech</button>
+    </div>
+  </div>
+
+  <script>
+    // Vanta Background
+    VANTA.WAVES({
+      el: "#animated-bg",
+      color: "#1A6BAA",
+      shininess: 50,
+      waveHeight: 20,
+      waveSpeed: 1,
+      zoom: 1
+    });
+
+    // Speech Synthesis
+    function convertTextToSpeech() {
+      const text = document.getElementById("textInput").value.trim();
+      if (!text) {
+        alert("Please enter some text!");
+        return;
+      }
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "en-US";
+      speechSynthesis.speak(utterance);
+    }
+  </script>
+</body>
+</html>
